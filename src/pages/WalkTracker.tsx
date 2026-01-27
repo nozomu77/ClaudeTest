@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback } from 'react'
 import type { WalkRecord, GeoPoint } from '../types'
 import { saveWalkRecord, getWalkRecordsByDate, generateId } from '../store'
 import { format } from 'date-fns'
@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 type WalkState = 'idle' | 'tracking' | 'finished'
 
 const TODAY = format(new Date(), 'yyyy-MM-dd')
+const INITIAL_WALKS = getWalkRecordsByDate(TODAY)
 
 function formatDuration(seconds: number): string {
   const m = Math.floor(seconds / 60)
@@ -46,16 +47,12 @@ export default function WalkTracker() {
   const [route, setRoute] = useState<GeoPoint[]>([])
   const [distance, setDistance] = useState(0)
   const [memo, setMemo] = useState('')
-  const [todayWalks, setTodayWalks] = useState<WalkRecord[]>([])
+  const [todayWalks, setTodayWalks] = useState<WalkRecord[]>(INITIAL_WALKS)
   const [geoError, setGeoError] = useState<string | null>(null)
 
   const startTimeRef = useRef<string>('')
   const watchIdRef = useRef<number | null>(null)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  useEffect(() => {
-    setTodayWalks(getWalkRecordsByDate(TODAY))
-  }, [])
 
   const startTracking = useCallback(() => {
     if (!navigator.geolocation) {

@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import type { EarStatus, TailStatus, EyeStatus, DailyRecord } from '../types'
 import {
   calcMoodScore,
@@ -12,6 +12,11 @@ import { format } from 'date-fns'
 type Step = 'photo' | 'ear' | 'tail' | 'eye' | 'done'
 
 const TODAY = format(new Date(), 'yyyy-MM-dd')
+
+function getInitialState(): { step: Step; saved: DailyRecord | null } {
+  const existing = getDailyRecordByDate(TODAY)
+  return existing ? { step: 'done', saved: existing } : { step: 'photo', saved: null }
+}
 
 function scoreEmoji(score: number): string {
   if (score >= 4.5) return '\u{1F929}'
@@ -31,22 +36,14 @@ function scoreBg(score: number): string {
 
 export default function TodayShiba() {
   const fileRef = useRef<HTMLInputElement>(null)
-  const [step, setStep] = useState<Step>('photo')
+  const initial = getInitialState()
+  const [step, setStep] = useState<Step>(initial.step)
   const [photo, setPhoto] = useState<string | undefined>()
   const [ear, setEar] = useState<EarStatus | null>(null)
   const [tail, setTail] = useState<TailStatus | null>(null)
   const [eye, setEye] = useState<EyeStatus | null>(null)
   const [memo, setMemo] = useState('')
-  const [saved, setSaved] = useState<DailyRecord | null>(null)
-
-  // Check if already recorded today
-  useEffect(() => {
-    const existing = getDailyRecordByDate(TODAY)
-    if (existing) {
-      setSaved(existing)
-      setStep('done')
-    }
-  }, [])
+  const [saved, setSaved] = useState<DailyRecord | null>(initial.saved)
 
   const handlePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
