@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-shiba: #f97316;
+  --color-shiba-light: #fff7ed;
+  --color-shiba-dark: #c2410c;
+  --color-mood-great: #22c55e;
+  --color-mood-good: #84cc16;
+  --color-mood-normal: #eab308;
+  --color-mood-low: #f97316;
+  --color-mood-bad: #ef4444;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background-color: var(--color-shiba-light);
+  -webkit-tap-highlight-color: transparent;
+}

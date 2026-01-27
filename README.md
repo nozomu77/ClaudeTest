@@ -1,39 +1,39 @@
-# プロジェクト名
+# しばログ
 
-```markdown
-短い説明（何をするプロジェクトか）
-```
+柴犬の生活の質向上を目的とした健康管理PWAアプリ。
 
-何をするプロジェクトか
+## 機能
+
+- **今日のしば** — 写真撮影 + 3タップ診断（耳・しっぽ・目）でご機嫌/体調指数を記録
+- **おさんぽトラッカー** — GPS連携で距離・時間を自動計測
+- **カレンダー** — 記録一覧・連続記録ストリーク表示
+- **推移グラフ** — ご機嫌/体調/散歩データを可視化
 
 ## クイックスタート
 
 ```bash
-# リポジトリをクローン
 git clone https://github.com/nozomu77/ClaudeTest.git
 cd ClaudeTest
-
-# 例: Node の場合
 npm install
-npm test
+npm run dev
 ```
 
-## 開発
+## 技術構成
 
-開発フロー、ブランチ戦略、重要なコマンドを記載。
+- React + TypeScript + Vite
+- Tailwind CSS
+- recharts（グラフ）
+- vite-plugin-pwa（PWA対応）
+- localStorage（データ保存）
 
-### 推奨フロー（例）
+## ビルド
 
-1. main ブランチは常にリリース可能な状態に保つ
-2. 機能ごとに `feature/xxx` ブランチを切る
-3. PR を作成してコードレビューを受ける
+```bash
+npm run build
+```
 
-## 貢献
-
-1. Issue を立てる
-2. フォークしてブランチを切る (`feature/xxx`)
-3. PR を作成
+`dist/` を任意のホスティングにデプロイすればOK。
 
 ## ライセンス
 
-このリポジトリは MIT ライセンスの下で公開されています（LICENSE を参照）。
+MIT
