@@ -1,40 +1,33 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# Node
-node_modules/
+# Logs
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-dist/
-build/
-.cache/
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # Environment
 .env
 .env.local
 .env.*.local
 
-# Logs
-logs
-*.log
-pids
-*.pid
-*.seed
-
 # Coverage
 coverage/
 .nyc_output/
-
-# IDEs
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-
-# Others
-coverage/
-*.local
