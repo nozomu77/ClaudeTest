@@ -1,4 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#f97316"/>
-  <text x="50" y="68" font-size="55" text-anchor="middle" font-family="sans-serif">&#x1F436;</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#f97316"/>
+
+  <!-- Face -->
+  <ellipse cx="256" cy="280" rx="140" ry="130" fill="#f5d0a9"/>
+
+  <!-- Inner face / muzzle area -->
+  <ellipse cx="256" cy="310" rx="90" ry="75" fill="#fef3c7"/>
+
+  <!-- Left ear -->
+  <path d="M120,180 L100,60 L200,140 Z" fill="#d97706"/>
+  <path d="M130,170 L115,80 L190,145 Z" fill="#f5d0a9"/>
+
+  <!-- Right ear -->
+  <path d="M392,180 L412,60 L312,140 Z" fill="#d97706"/>
+  <path d="M382,170 L397,80 L322,145 Z" fill="#f5d0a9"/>
+
+  <!-- Left eye -->
+  <ellipse cx="205" cy="260" rx="18" ry="20" fill="#1c1917"/>
+  <ellipse cx="210" cy="254" rx="6" ry="7" fill="#fff"/>
+
+  <!-- Right eye -->
+  <ellipse cx="307" cy="260" rx="18" ry="20" fill="#1c1917"/>
+  <ellipse cx="312" cy="254" rx="6" ry="7" fill="#fff"/>
+
+  <!-- Nose -->
+  <ellipse cx="256" cy="310" rx="16" ry="12" fill="#1c1917"/>
+
+  <!-- Mouth -->
+  <path d="M256,322 Q240,345 225,335" fill="none" stroke="#1c1917" stroke-width="4" stroke-linecap="round"/>
+  <path d="M256,322 Q272,345 287,335" fill="none" stroke="#1c1917" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Tongue -->
+  <ellipse cx="256" cy="350" rx="12" ry="16" fill="#fb7185"/>
+
+  <!-- Cheeks -->
+  <ellipse cx="170" cy="300" rx="22" ry="14" fill="#fdba74" opacity="0.5"/>
+  <ellipse cx="342" cy="300" rx="22" ry="14" fill="#fdba74" opacity="0.5"/>
 </svg>
